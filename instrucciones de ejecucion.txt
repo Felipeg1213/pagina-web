@@ -1,0 +1,67 @@
+instrucciones de ejecución
+
+Guía Detallada para Abrir el Proyecto "Habits Tracker" desde Cero
+Este proyecto es un rastreador de hábitos (Habits Tracker) desarrollado con Node.js, TypeScript, Express.js (backend), React (frontend) y SQLite como base de datos. A continuación, te detallo paso a paso cómo configurarlo y ejecutarlo desde cero en tu sistema Windows.
+
+Requisitos Previos
+Antes de comenzar, asegúrate de tener instalado:
+
+Node.js (versión 18 o superior): Descárgalo desde nodejs.org. Esto incluye npm automáticamente.
+Git (opcional, si necesitas clonar desde un repositorio): Descárgalo desde git-scm.com.
+Un editor de código como Visual Studio Code (VS Code) para editar archivos si es necesario.
+Verifica las versiones instaladas abriendo la terminal (PowerShell o CMD) y ejecutando:
+
+
+node --version
+npm --version
+Paso 1: Obtener el Proyecto
+Si el proyecto ya está descargado en tu carpeta Downloads, navega a él. Si no, clónalo o descárgalo:
+
+Si está en tu máquina: El proyecto se encuentra en c:\Users\miste\Downloads\proyecto_1 (3)\proyecto_1\proyecto\.
+Si necesitas descargarlo desde cero (asumiendo que está en un repositorio Git):
+Abre la terminal y navega a una carpeta donde quieras guardar el proyecto, por ejemplo:
+
+cd c:\Users\miste\Desktop
+Clona el repositorio (reemplaza <URL_DEL_REPOSITORIO> con la URL real, si aplica):
+
+git clone <URL_DEL_REPOSITORIO> habits-tracker
+cd habits-tracker
+Paso 2: Instalar Dependencias
+Abre la terminal y navega al directorio del proyecto:
+
+cd c:\Users\miste\Downloads\proyecto_1 (3)\proyecto_1\proyecto
+Instala las dependencias del proyecto ejecutando:
+
+npm install
+Esto descargará todas las librerías necesarias (como Express, React, SQLite3, Webpack, etc.) definidas en package.json.
+El proceso puede tardar unos minutos. Asegúrate de que no haya errores en la instalación.
+Paso 3: Configurar la Base de Datos
+El proyecto usa SQLite para almacenar datos de hábitos. La base de datos se crea automáticamente al ejecutar el servidor, pero verifica que el archivo habits.db exista en la carpeta proyecto_1/proyecto/ (o proyecto_1/proyecto/dist/ después de compilar).
+
+Si no existe, el código en database/db.ts lo creará con las tablas necesarias (habits, habit_logs, habit_order).
+No necesitas configurar nada manualmente; SQLite es embebido y no requiere un servidor separado.
+Paso 4: Ejecutar el Proyecto
+Tienes dos modos principales: desarrollo y producción.
+
+Modo Desarrollo (Recomendado para probar cambios)
+Ejecuta el servidor directamente con TypeScript (sin compilar):
+
+npm run dev
+Salida esperada:
+
+🚀 Habits Tracker Server running on http://localhost:8080
+📊 Dashboard available at http://localhost:8080/
+✅ Conectado a la base de datos SQLite
+Abre tu navegador y ve a http://localhost:8080 para ver la aplicación web.
+El servidor se recarga automáticamente si editas archivos TypeScript.
+Presiona Ctrl + C en la terminal para detener el servidor.
+Modo Producción
+Compila el código TypeScript a JavaScript:
+
+npm run build
+Esto genera archivos en la carpeta dist/ (como server.js, index.html, bundle.js).
+Ejecuta el servidor compilado:
+
+npm run start
+Salida esperada similar al modo dev.
+Accede a http://localhost:8080 en el navegador.
